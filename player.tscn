@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1bbcnj8osnew"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_bgl4l"]
+[ext_resource type="Texture2D" uid="uid://6c76m4e251fx" path="res://assets/player/p_idle_1.png" id="2_pp1nd"]
+[ext_resource type="Texture2D" uid="uid://trpjltoqvd2y" path="res://assets/player/p_idle_2.png" id="3_w2tdr"]
+[ext_resource type="Texture2D" uid="uid://dtc5yg4h2u2s8" path="res://assets/player/p_idle_3.png" id="4_308dm"]
+[ext_resource type="Texture2D" uid="uid://diwh2f5ynisc1" path="res://assets/player/p_idle_4.png" id="5_fk03d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aotpw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pp1nd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w2tdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_308dm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fk03d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpqjw"]
+size = Vector2(12, 7)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_bgl4l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aotpw")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_qpqjw")
